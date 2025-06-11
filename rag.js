@@ -25,9 +25,9 @@ if (!process.env.OPENAI_API_KEY) {
 // process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
 
 // Define proxy URL
-const proxyUrl = `http://${process.env.PROXY_USERNAME}:${process.env.PROXY_PASSWORD}@webproxy.prod.d003.loc:8080`;
+// const proxyUrl = `http://${process.env.PROXY_USERNAME}:${process.env.PROXY_PASSWORD}@webproxy.prod.d003.loc:8080`;
 // Create proxy agents for HTTP and HTTPS
-const proxyAgent = new HttpsProxyAgent(proxyUrl);
+// const proxyAgent = new HttpsProxyAgent(proxyUrl);
 
 // Helper function to format documents as a string
 const formatDocumentsAsString = (documents) => {
@@ -45,7 +45,7 @@ async function runRAG() {
       configuration: {
         // apiKey: process.env.OPENAI_API_KEY,
         // baseURL: "https://api.openai.com/v1",
-        httpAgent: proxyAgent
+        // httpAgent: proxyAgent
       }
     });
     
@@ -64,7 +64,7 @@ async function runRAG() {
         configuration: {
           // apiKey: process.env.OPENAI_API_KEY,
           // baseURL: "https://api.openai.com/v1",
-          httpAgent: proxyAgent
+          // httpAgent: proxyAgent
         }
       })
     );
