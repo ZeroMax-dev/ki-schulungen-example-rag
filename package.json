@@ -12,11 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@langchain/core": "^0.3.42",
-    "@langchain/openai": "^0.4.7",
-    "@langchain/textsplitters": "^0.1.0",
-    "dotenv": "^16.4.7",
+    "@langchain/classic": "^1.0.38",
+    "@langchain/core": "^1.2.1",
+    "@langchain/openai": "^1.5.3",
+    "@langchain/textsplitters": "^1.0.1",
+    "dotenv": "^17.4.2",
     "https-proxy-agent": "^7.0.6",
-    "langchain": "^0.3.19"
+    "langchain": "^1.5.2"
   }
 }

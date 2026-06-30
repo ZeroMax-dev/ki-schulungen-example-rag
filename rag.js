@@ -1,13 +1,14 @@
 // Load environment variables from .env file
 import dotenv from 'dotenv';
-dotenv.config();
+dotenv.config({ quiet: true });
 
 import * as fs from "node:fs";
 
 import { HttpsProxyAgent } from "https-proxy-agent";
 import { OpenAIEmbeddings, ChatOpenAI } from "@langchain/openai";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
-import { MemoryVectorStore } from "langchain/vectorstores/memory";
+// In LangChain v1 the lightweight in-memory vector store moved to @langchain/classic
+import { MemoryVectorStore } from "@langchain/classic/vectorstores/memory";
 import {
   RunnablePassthrough,
   RunnableSequence,
