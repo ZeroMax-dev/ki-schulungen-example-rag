@@ -42,7 +42,7 @@ async function runRAG() {
   try {
     // Initialize the LLM to use to answer the question
     const model = new ChatOpenAI({
-      model: "gpt-4o",
+      model: "gpt-5.4-mini",
       configuration: {
         // apiKey: process.env.OPENAI_API_KEY,
         // baseURL: "https://api.openai.com/v1",
