@@ -10,7 +10,7 @@ import * as fs from "node:fs/promises";
 
 import * as z from "zod";
 import { createAgent, tool } from "langchain";
-import { OpenAIEmbeddings } from "@langchain/openai";
+import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
 import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { MemoryVectorStore } from "@langchain/classic/vectorstores/memory";
 
@@ -59,8 +59,16 @@ const retrieveContext = tool(
   }
 );
 
+// gpt-6-luna is a reasoning model. Reasoning + function tools requires OpenAI's
+// Responses API, so we turn it on explicitly.
+const model = new ChatOpenAI({
+  model: "gpt-6-luna",
+  reasoning: { effort: "medium" }, // "none" | "low" | "medium" | "high" | ...
+  useResponsesApi: true,
+});
+
 const agent = createAgent({
-  model: "openai:gpt-5.4-mini",
+  model,
   tools: [retrieveContext],
   systemPrompt:
     "You answer questions about the 2022 State of the Union address. " +

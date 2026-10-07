@@ -81,10 +81,12 @@ ${context}`;
   });
 
   // 5. Generate: an agent without tools is simply "prompt -> model -> answer".
-  // (We pass a ChatOpenAI instance instead of the "openai:gpt-5.4-mini" string
-  // so the optional proxy configuration above can be applied.)
+  // gpt-6-luna is a reasoning model; we use OpenAI's Responses API (required
+  // as soon as reasoning is combined with tools, see rag-agent.js).
   const model = new ChatOpenAI({
-    model: "gpt-5.4-mini",
+    model: "gpt-6-luna",
+    reasoning: { effort: "medium" }, // "none" | "low" | "medium" | "high" | ...
+    useResponsesApi: true,
     configuration: openAIConfiguration,
   });
   const agent = createAgent({
