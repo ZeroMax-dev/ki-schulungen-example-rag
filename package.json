@@ -6,18 +6,22 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node rag.js"
+    "start": "node rag.js",
+    "agent": "node rag-agent.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@langchain/classic": "^1.0.38",
-    "@langchain/core": "^1.2.1",
-    "@langchain/openai": "^1.5.3",
-    "@langchain/textsplitters": "^1.0.1",
-    "dotenv": "^17.4.2",
-    "https-proxy-agent": "^7.0.6",
-    "langchain": "^1.5.2"
+    "@langchain/classic": "^1.0.52",
+    "@langchain/core": "^1.2.17",
+    "@langchain/openai": "^1.6.2",
+    "@langchain/textsplitters": "^1.0.2",
+    "dotenv": "^18.0.6",
+    "langchain": "^1.5.15",
+    "undici": "^8.11.2"
+  },
+  "engines": {
+    "node": ">=22.19.0"
   }
 }
